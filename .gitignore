@@ -1,4 +1,5 @@
 .vagrant/
+doc/
 log/
 tmp/
 .env
