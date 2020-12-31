@@ -1,0 +1,5 @@
+.vagrant/
+log/
+tmp/
+.env
+www/db/database.db

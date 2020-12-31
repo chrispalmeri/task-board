@@ -1,0 +1,43 @@
+/* resets */
+
+input, select, textarea, button {
+  box-sizing: border-box;
+  outline: none;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+textarea {
+  resize: none;
+}
+input::-moz-focus-inner, button::-moz-focus-inner  {
+  padding: 0;
+  border: 0;
+}
+
+/* elements */
+
+body {
+  font: 14px Arial, sans-serif;
+}
+input, select, textarea, button {
+  width: 360px;
+  font: 14px Arial, sans-serif;
+  padding: 6px;
+  border: 1px solid #999;
+  border-radius: 2px;
+  margin-top: 4px;
+}
+textarea {
+  height: 180px;
+}
+button {
+  width: 80px;
+  background: #ccc;
+}
+code, pre {
+  background: #eee;
+  border-radius: 2px;
+  padding: 0 2px;
+}

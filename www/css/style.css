@@ -1,0 +1,214 @@
+/*
+later
+  form level errors
+  help text below input
+*/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code');
+
+:root {
+  --white: #fff;
+  --light-gray: #999;
+  --dark-gray: #444;
+  --light-black: #2b2b2b;
+  --black: #161616;
+  --blue: #2949d4;
+  --green: #26852e;
+  --orange: #b16c1d;
+  --error-hard: #ff3434;
+  --red: #962929;
+  --error-soft: #641d1d;
+}
+input::-moz-focus-inner, button::-moz-focus-inner  {
+  padding: 0;
+  border: 0;
+}
+body {
+  color: var(--white);
+  background: var(--black);
+  margin: 0;
+}
+body, input {
+  font: 14pt 'Fira Code', monospace;
+}
+input, a {
+  outline: none;
+}
+h2, p {
+  margin: 32px 0 0;
+}
+h2 {
+  font: bold 20pt 'Fira Code', monospace;
+  padding-bottom: 2px;
+}
+a, .muted {
+  color: var(--light-gray);
+}
+
+.mask {
+  height: 100%;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+}
+
+.form {
+  max-width: 320px;
+  padding: 8px 40px 40px;
+  background: var(--light-black);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+}
+label {
+  font: bold 12pt 'Fira Code', monospace;
+}
+.input {
+  display: flex;
+}
+input {
+  color: var(--light-gray);
+  flex-grow: 1;
+  min-width: 140px;
+  background: transparent;
+}
+
+.form input {
+  padding: 8px 0 4px;
+  border: none;
+  margin-right: 8px;
+}
+.input {
+  border: 1px solid var(--white);
+  border-width: 0 0 1px;
+}
+.error .input {
+  border-color: var(--error-hard);
+}
+.error label {
+  color: var(--error-hard);
+}
+.error input {
+  color: var(--red);
+}
+
+.submit {
+  margin: 40px 0 0;
+}
+
+/* Button styles */
+
+button {
+  font: 14pt 'Fira Code', monospace;
+  outline: none;
+  border: none;
+  background: var(--dark-gray);
+  color: var(--white);
+  padding: 6px 12px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+}
+.submit button, #content button {
+  padding: 6px 18px;
+  border-radius: 20px;
+  margin-left: 20px;
+}
+button:first-child {
+  margin-left: 0 !important;
+}
+.input button {
+  color: var(--light-gray);
+  font-weight: bold;
+  background: transparent;
+  box-shadow: none;
+}
+.error button{
+  color: var(--error-soft);
+}
+
+button:hover, button:focus {
+  box-shadow: inset 0 0 40px 0 rgba(255, 255, 255, 0.2);
+}
+
+button.create, button.update, button.complete {
+  background: var(--blue);
+}
+/* conventionally GET: blue, POST: green, PUT: orange, DELETE: red
+*/
+/*button.create {
+  background: var(--green);
+}
+button.update, button.complete {
+  background: var(--orange);
+}*/
+button.delete {
+  background: var(--red);
+}
+
+button:disabled {
+  opacity: 0.6;
+}
+button.cancel {
+  color: var(--light-gray);
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.input button:hover, .input button:focus,
+button.cancel:hover, button.cancel:focus {
+  color: #ddd;
+  box-shadow: none;
+}
+/*
+button.complete, .due button {
+  display: none;
+}
+.due button.complete {
+  display: inline-block;
+}*/
+
+
+#dashboard {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+}
+h2 a {
+  text-decoration: none;
+}
+.card {
+  padding: 8px 40px 40px;
+}
+.blur {
+  filter: blur(1px);
+}
+
+#content .submit {
+  margin: 32px 0 0;
+}
+#list {
+  margin: 40px 0 0;
+}
+
+#list ul {
+  padding: 0;
+  list-style: none;
+}
+#list li {
+  border-top: 1px solid var(--dark-gray);
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+}
+#list li:last-child {
+  border-bottom: 1px solid var(--dark-gray);
+}
+#list li span {
+  flex-basis: 80%;
+}
+.submit {
+  display: flex;
+  align-items: center;
+}
