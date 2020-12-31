@@ -19,9 +19,6 @@ fi
 # Timezone
 timedatectl set-timezone America/Chicago
 
-# Make a log directory
-mkdir -p $build/log
-
 # Update and install software
 apt-get update
 apt-get install -y git apache2 sqlite3 php libapache2-mod-php php-curl php-sqlite3 ufw
@@ -51,8 +48,11 @@ else
 fi
 
 # copy www to www
-rsync -av --delete --delete-excluded --include='www/***' --include='php/***' --exclude='*' /home/www-data/task-board/ /srv/task-board/
+rsync -av --delete --delete-excluded --include='www/***' --include='php/***' --filter 'protect database.db' --exclude='*' /home/www-data/task-board/ /srv/task-board/
 
+
+# Make a log directory
+mkdir -p $build/log
 
 # Add another PHP .ini to be parsed after the defaults
 cat > /etc/php/7.3/apache2/conf.d/90-custom.ini << EOF
@@ -78,8 +78,16 @@ cat > /etc/apache2/sites-available/000-default.conf << EOF
 </VirtualHost>
 EOF
 
-# Enable mod rewrite and restart Apache
+# Add placeholder env config file
+cat > /etc/apache2/conf-available/env.conf << EOF
+SetEnv NOAA_GRID ""
+SetEnv NOAA_STATION ""
+SetEnv NOAA_AGENT ""
+EOF
+
+# Enable mod rewrite, env config, and restart Apache
 a2enmod rewrite
+a2enconf env
 systemctl restart apache2
 
 # Enable firewall

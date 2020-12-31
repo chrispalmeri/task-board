@@ -22,8 +22,7 @@ while read -r line; do
 done < /vagrant/.env
 
 # Move to apache conf available
-mv /tmp/env.conf /etc/apache2/conf-available/
+mv -f /tmp/env.conf /etc/apache2/conf-available/
 
-# Enable config and restart Apache
-a2enconf env
+# Restart Apache
 systemctl restart apache2

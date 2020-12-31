@@ -6,7 +6,7 @@ class Endpoint extends ApiEndpoint {
   // really GET should tell you if there are updates available
   // and POST should perform the update
   function get($request) {
-    $command = "git pull && rsync -av --delete --delete-excluded --include='www/***' --include='php/***' --exclude='*' /home/www-data/task-board/ /srv/task-board/ 2>&1";
+    $command = "git pull && rsync -av --delete --delete-excluded --include='www/***' --include='php/***' --filter 'protect database.db' --exclude='*' /home/www-data/task-board/ /srv/task-board/ 2>&1";
     $output = array();
     $result = '';
     

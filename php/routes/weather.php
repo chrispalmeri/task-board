@@ -35,6 +35,7 @@ class Endpoint extends ApiEndpoint {
       );
       
       return array(200, array(
+        // returns 32 even if it is undefined
         'temperature' => round(($response->body->properties->temperature->value * 9 / 5) + 32)
       ));
 
