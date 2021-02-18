@@ -14,7 +14,7 @@
 ### Testing
 
   * You can test the `/api/update`, it should work but will not change web root so you won't see any changes
-  * You could `vagrant ssh`, `cd vagrant`, `sudo ./install.sh` to serve that instead of local copy, you would have to `vagrant provision` to revert
+  * You could `vagrant ssh`, `cd /vagrant`, `sudo ./install.sh` to serve that instead of local copy, you would have to `vagrant provision` to revert
   * also to add db to that environment within vagrant `sudo cp /vagrant/www/db/database.db /srv/task-board/www/db/database.db`
 
 ## Production
